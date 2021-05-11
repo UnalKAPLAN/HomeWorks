@@ -5,18 +5,12 @@ import abstracts.CustomerCheckService;
 import entities.Customer;
 
 public class NeroCustomerManager extends BaseCustomerManager{
-	CustomerCheckService checkService;
-	public NeroCustomerManager(CustomerCheckService checkService) {
-		this.checkService=checkService;
-	}
 	
+	@Override
 	public void save(Customer customer) {
-		if(checkService.checkIfRealPerson(customer)) {
-			super.save(customer);
-			
-		}else {
-			System.out.println("Böyle bir kullanýcý yoktur");
-		}
+		
+		System.out.println("Saved to databse : " + customer.getFirstName()+" " +customer.getLastName());
+	}
 
 }
-}
+
